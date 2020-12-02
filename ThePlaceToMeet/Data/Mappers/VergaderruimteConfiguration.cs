@@ -9,7 +9,7 @@ namespace ThePlaceToMeet.Data.Mappers
         public void Configure(EntityTypeBuilder<Vergaderruimte> builder)
         {
             builder.ToTable("Vergaderruimte");
-            builder.HasMany(t => t.Reservaties).WithOne().IsRequired().OnDelete(DeleteBehavior.Restrict);
+            builder.HasMany(t => t.Reservaties).WithOne(t => t.Vergaderruimte).IsRequired().OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

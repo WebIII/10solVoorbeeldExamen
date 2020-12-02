@@ -22,7 +22,7 @@ namespace ThePlaceToMeet.Data.Repositories
 
         public Klant GetByEmail(string email)
         {
-            return _klanten.Include(t=>t.Reservaties).FirstOrDefault(t => t.Email == email);
+            return _klanten.Include(t=>t.Reservaties).ThenInclude(t => t.Catering).Include(t => t.Reservaties).ThenInclude(t => t.Vergaderruimte).FirstOrDefault(t => t.Email == email);
         }
 
         public void SaveChanges()
